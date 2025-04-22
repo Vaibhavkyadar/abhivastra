@@ -1,10 +1,308 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Git & GitHub Crash Course</title>
-  </head>
-  <body>
-    <h1>Git & GitHub Crash Course</h1>
-    <p>Because the basics are important!</p>
-  </body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Abhivstra Cottons
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Playfair Display", serif;
+    }
+  </style>
+ </head>
+ <body class="bg-white text-black relative">
+  <header class="flex items-center justify-between px-6 py-4 max-w-[1200px] mx-auto">
+   <nav class="flex space-x-8 text-sm font-serif">
+    <a class="hover:underline" href="#">
+     Shop All
+    </a>
+    <a class="hover:underline" href="#">
+     Clothing
+    </a>
+    <a class="hover:underline" href="#">
+     Custom Stitching
+    </a>
+    <a class="hover:underline" href="#">
+     About
+    </a>
+   </nav>
+   <div class="flex justify-center flex-1">
+    <h1 class="text-2xl font-serif font-semibold tracking-wide select-none">
+     Abhivstra
+    </h1>
+   </div>
+   <div class="flex space-x-6 text-black text-lg">
+    <button aria-label="Search" class="hover:text-gray-700">
+     <i class="fas fa-search">
+     </i>
+    </button>
+    <button aria-label="User Account" class="hover:text-gray-700">
+     <i class="fas fa-user">
+     </i>
+    </button>
+    <button aria-label="Wishlist" class="hover:text-gray-700">
+     <i class="far fa-heart">
+     </i>
+    </button>
+    <button aria-label="Shopping Bag" class="hover:text-gray-700">
+     <i class="fas fa-shopping-bag">
+     </i>
+    </button>
+   </div>
+  </header>
+  <main class="max-w-[1200px] mx-auto px-6">
+   <h1 class="text-4xl font-serif font-semibold text-center mt-16 mb-10">
+    Cottons
+   </h1>
+   <div class="flex items-center justify-between mb-8 relative">
+    <button aria-label="Filter" id="filterBtn" class="flex items-center gap-2 border border-black px-4 py-2 text-sm font-serif hover:bg-gray-100 z-20 relative">
+     <i class="fas fa-filter">
+     </i>
+     Filter
+    </button>
+    <div class="flex items-center gap-4 text-gray-400 text-sm font-serif">
+     <button aria-label="Grid view" class="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center">
+      <i class="fas fa-th-large text-black">
+      </i>
+     </button>
+     <select aria-label="Default sorting" class="appearance-none bg-transparent cursor-pointer">
+      <option disabled="" selected="">
+       Default sorting
+      </option>
+     </select>
+    </div>
+    <!-- Filter Modal -->
+    <div aria-modal="true" aria-labelledby="filterTitle" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-30 hidden" id="filterModal" role="dialog">
+     <div class="bg-white rounded-md max-w-md w-full p-6 relative">
+      <h2 class="text-xl font-serif font-semibold mb-4" id="filterTitle">
+       Filter Products
+      </h2>
+      <button aria-label="Close filter modal" class="absolute top-3 right-3 text-gray-600 hover:text-black" id="closeFilterBtn" type="button">
+       <i class="fas fa-times text-lg">
+       </i>
+      </button>
+      <form class="space-y-6">
+       <fieldset>
+        <legend class="font-serif font-semibold mb-2">
+         Size
+        </legend>
+        <div class="flex flex-wrap gap-3">
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="size" type="checkbox" value="S"/>
+          <span class="font-serif text-sm">
+           S
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="size" type="checkbox" value="M"/>
+          <span class="font-serif text-sm">
+           M
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="size" type="checkbox" value="L"/>
+          <span class="font-serif text-sm">
+           L
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="size" type="checkbox" value="XL"/>
+          <span class="font-serif text-sm">
+           XL
+          </span>
+         </label>
+        </div>
+       </fieldset>
+       <fieldset>
+        <legend class="font-serif font-semibold mb-2">
+         Color
+        </legend>
+        <div class="flex flex-wrap gap-3">
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="color" type="checkbox" value="Black"/>
+          <span class="font-serif text-sm">
+           Black
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="color" type="checkbox" value="White"/>
+          <span class="font-serif text-sm">
+           White
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="color" type="checkbox" value="Red"/>
+          <span class="font-serif text-sm">
+           Red
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="color" type="checkbox" value="Blue"/>
+          <span class="font-serif text-sm">
+           Blue
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="color" type="checkbox" value="Green"/>
+          <span class="font-serif text-sm">
+           Green
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="color" type="checkbox" value="Yellow"/>
+          <span class="font-serif text-sm">
+           Yellow
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="color" type="checkbox" value="Orange"/>
+          <span class="font-serif text-sm">
+           Orange
+          </span>
+         </label>
+        </div>
+       </fieldset>
+       <fieldset>
+        <legend class="font-serif font-semibold mb-2">
+         Price (₹)
+        </legend>
+        <div class="flex flex-col gap-2">
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="price" type="radio" value="2000-3000"/>
+          <span class="font-serif text-sm">
+           ₹2,000 - ₹3,000
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="price" type="radio" value="3001-4000"/>
+          <span class="font-serif text-sm">
+           ₹3,001 - ₹4,000
+          </span>
+         </label>
+         <label class="flex items-center gap-2 cursor-pointer">
+          <input name="price" type="radio" value="4001-5000"/>
+          <span class="font-serif text-sm">
+           ₹4,001 - ₹5,000
+          </span>
+         </label>
+        </div>
+       </fieldset>
+       <div class="flex justify-end gap-4 mt-6">
+        <button class="px-4 py-2 border border-black font-serif text-sm hover:bg-gray-100" id="clearFilters" type="button">
+         Clear
+        </button>
+        <button class="px-4 py-2 bg-black text-white font-serif text-sm hover:bg-gray-800" type="submit">
+         Apply
+        </button>
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+   <section aria-label="Cotton product collection" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-20">
+    <article class="relative group">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Black cotton kurta back view with white floral print hanging on wooden hanger in front of traditional Indian wall painting" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/87fad576-c744-48d9-57ae-ed1ae95db881.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,200
+     </p>
+    </article>
+    <article class="relative group">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Red cotton kurta back view with white polka dots hanging on wooden hanger in front of traditional Indian wall painting" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/8b64b90e-b9fc-4c40-05e2-84fad83c3648.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹4,500
+     </p>
+    </article>
+    <article class="relative group">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="White cotton kurta front view with pink floral print hanging on wooden hanger in front of traditional Indian wall painting" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/418ff1f8-f82d-4cf8-5736-5c0d26d09a44.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹2,900
+     </p>
+    </article>
+    <article class="relative group">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="White cotton kurta back view with subtle print hanging on wooden hanger in front of traditional Indian wall painting" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/6addf326-4f5f-4413-1b0b-78c152bd62de.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,700
+     </p>
+    </article>
+    <article class="relative group">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Blue cotton kurta front view with white floral print hanging on wooden hanger in front of traditional Indian wall painting" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/143d6251-26b6-45ac-8f6b-320e2d542e59.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹4,200
+     </p>
+    </article>
+    <article class="relative group">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Yellow cotton kurta back view with subtle print hanging on wooden hanger in front of traditional Indian wall painting" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/512478e2-4680-41ba-64cf-e8de5eae8caa.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹2,600
+     </p>
+    </article>
+    <article class="relative group">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Green cotton kurta front view with white floral print hanging on wooden hanger in front of traditional Indian wall painting" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/52fe8e59-42de-4272-b0e0-f92ab1c0b0a0.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,900
+     </p>
+    </article>
+    <article class="relative group">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Orange cotton kurta back view with subtle print hanging on wooden hanger in front of traditional Indian wall painting" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/2e8cb24b-4e66-4c2c-77cb-3c9ba44f17af.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹4,800
+     </p>
+    </article>
+   </section>
+  </main>
+  <script>
+   const filterBtn = document.getElementById('filterBtn');
+    const filterModal = document.getElementById('filterModal');
+    const closeFilterBtn = document.getElementById('closeFilterBtn');
+    const clearFiltersBtn = document.getElementById('clearFilters');
+
+    filterBtn.addEventListener('click', () => {
+      filterModal.classList.remove('hidden');
+    });
+
+    closeFilterBtn.addEventListener('click', () => {
+      filterModal.classList.add('hidden');
+    });
+
+    filterModal.addEventListener('click', (e) => {
+      if (e.target === filterModal) {
+        filterModal.classList.add('hidden');
+      }
+    });
+
+    clearFiltersBtn.addEventListener('click', () => {
+      const form = clearFiltersBtn.closest('form');
+      form.reset();
+    });
+  </script>
+ </body>
 </html>
