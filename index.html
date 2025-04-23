@@ -16,8 +16,8 @@
   </style>
  </head>
  <body class="bg-white text-black relative">
-  <header class="flex items-center justify-between px-6 py-4 max-w-[1200px] mx-auto">
-   <nav class="flex space-x-8 text-sm font-serif">
+  <header class="flex flex-wrap items-center justify-between px-4 py-4 max-w-[1200px] mx-auto">
+   <nav class="flex flex-wrap space-x-4 text-sm font-serif w-full sm:w-auto mb-3 sm:mb-0">
     <a class="hover:underline" href="#">
      Shop All
     </a>
@@ -31,21 +31,21 @@
      About
     </a>
    </nav>
-   <div class="flex justify-center flex-1">
+   <div class="flex justify-center flex-1 w-full sm:w-auto mb-3 sm:mb-0">
     <h1 class="text-2xl font-serif font-semibold tracking-wide select-none">
      Abhivstra
     </h1>
    </div>
-   <div class="flex space-x-6 text-black text-lg">
-    <button aria-label="Search" class="hover:text-gray-700">
+   <div class="flex space-x-6 text-black text-lg w-full sm:w-auto justify-center sm:justify-start">
+    <button aria-label="Search" class="hover:text-gray-700" id="searchBtn" type="button">
      <i class="fas fa-search">
      </i>
     </button>
-    <button aria-label="User Account" class="hover:text-gray-700">
+    <button aria-label="User Account" class="hover:text-gray-700" id="userBtn" type="button">
      <i class="fas fa-user">
      </i>
     </button>
-    <button aria-label="Wishlist" class="hover:text-gray-700">
+    <button aria-label="Wishlist" class="hover:text-gray-700" id="wishlistBtn" type="button">
      <i class="far fa-heart">
      </i>
     </button>
@@ -55,157 +55,45 @@
     </button>
    </div>
   </header>
-  <main class="max-w-[1200px] mx-auto px-6">
+  <main class="max-w-[1200px] mx-auto px-4 sm:px-6">
    <h1 class="text-4xl font-serif font-semibold text-center mt-16 mb-10">
     Cottons
    </h1>
-   <div class="flex items-center justify-between mb-8 relative">
-    <button aria-label="Filter" id="filterBtn" class="flex items-center gap-2 border border-black px-4 py-2 text-sm font-serif hover:bg-gray-100 z-20 relative">
+   <div class="flex flex-wrap items-center justify-between mb-8 relative gap-4">
+    <button aria-label="Filter" class="flex items-center gap-2 border border-black px-4 py-2 text-sm font-serif hover:bg-gray-100 z-20 relative" id="filterBtn" type="button">
      <i class="fas fa-filter">
      </i>
      Filter
     </button>
-    <div class="flex items-center gap-4 text-gray-400 text-sm font-serif">
-     <button aria-label="Grid view" class="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center">
+    <div class="flex items-center gap-4 text-gray-400 text-sm font-serif flex-grow justify-end min-w-[150px] relative">
+     <button aria-label="Grid view" class="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center relative" id="gridViewBtn" type="button">
       <i class="fas fa-th-large text-black">
       </i>
      </button>
+     <div class="absolute bottom-full mb-2 right-0 flex space-x-2 bg-white border border-gray-300 rounded-md shadow-lg p-1 hidden" id="gridOptions">
+      <button aria-label="2 images per row" class="w-8 h-8 rounded border border-gray-400 text-sm font-serif hover:bg-gray-100" data-cols="2" type="button">
+       2
+      </button>
+      <button aria-label="3 images per row" class="w-8 h-8 rounded border border-gray-400 text-sm font-serif hover:bg-gray-100" data-cols="3" type="button">
+       3
+      </button>
+      <button aria-label="4 images per row" class="w-8 h-8 rounded border border-gray-400 text-sm font-serif hover:bg-gray-100" data-cols="4" type="button">
+       4
+      </button>
+      <button aria-label="5 images per row" class="w-8 h-8 rounded border border-gray-400 text-sm font-serif hover:bg-gray-100" data-cols="5" type="button">
+       5
+      </button>
+     </div>
      <select aria-label="Default sorting" class="appearance-none bg-transparent cursor-pointer">
       <option disabled="" selected="">
        Default sorting
       </option>
      </select>
     </div>
-    <!-- Filter Modal -->
-    <div aria-modal="true" aria-labelledby="filterTitle" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-30 hidden" id="filterModal" role="dialog">
-     <div class="bg-white rounded-md max-w-md w-full p-6 relative">
-      <h2 class="text-xl font-serif font-semibold mb-4" id="filterTitle">
-       Filter Products
-      </h2>
-      <button aria-label="Close filter modal" class="absolute top-3 right-3 text-gray-600 hover:text-black" id="closeFilterBtn" type="button">
-       <i class="fas fa-times text-lg">
-       </i>
-      </button>
-      <form class="space-y-6">
-       <fieldset>
-        <legend class="font-serif font-semibold mb-2">
-         Size
-        </legend>
-        <div class="flex flex-wrap gap-3">
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="size" type="checkbox" value="S"/>
-          <span class="font-serif text-sm">
-           S
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="size" type="checkbox" value="M"/>
-          <span class="font-serif text-sm">
-           M
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="size" type="checkbox" value="L"/>
-          <span class="font-serif text-sm">
-           L
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="size" type="checkbox" value="XL"/>
-          <span class="font-serif text-sm">
-           XL
-          </span>
-         </label>
-        </div>
-       </fieldset>
-       <fieldset>
-        <legend class="font-serif font-semibold mb-2">
-         Color
-        </legend>
-        <div class="flex flex-wrap gap-3">
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="color" type="checkbox" value="Black"/>
-          <span class="font-serif text-sm">
-           Black
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="color" type="checkbox" value="White"/>
-          <span class="font-serif text-sm">
-           White
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="color" type="checkbox" value="Red"/>
-          <span class="font-serif text-sm">
-           Red
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="color" type="checkbox" value="Blue"/>
-          <span class="font-serif text-sm">
-           Blue
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="color" type="checkbox" value="Green"/>
-          <span class="font-serif text-sm">
-           Green
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="color" type="checkbox" value="Yellow"/>
-          <span class="font-serif text-sm">
-           Yellow
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="color" type="checkbox" value="Orange"/>
-          <span class="font-serif text-sm">
-           Orange
-          </span>
-         </label>
-        </div>
-       </fieldset>
-       <fieldset>
-        <legend class="font-serif font-semibold mb-2">
-         Price (₹)
-        </legend>
-        <div class="flex flex-col gap-2">
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="price" type="radio" value="2000-3000"/>
-          <span class="font-serif text-sm">
-           ₹2,000 - ₹3,000
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="price" type="radio" value="3001-4000"/>
-          <span class="font-serif text-sm">
-           ₹3,001 - ₹4,000
-          </span>
-         </label>
-         <label class="flex items-center gap-2 cursor-pointer">
-          <input name="price" type="radio" value="4001-5000"/>
-          <span class="font-serif text-sm">
-           ₹4,001 - ₹5,000
-          </span>
-         </label>
-        </div>
-       </fieldset>
-       <div class="flex justify-end gap-4 mt-6">
-        <button class="px-4 py-2 border border-black font-serif text-sm hover:bg-gray-100" id="clearFilters" type="button">
-         Clear
-        </button>
-        <button class="px-4 py-2 bg-black text-white font-serif text-sm hover:bg-gray-800" type="submit">
-         Apply
-        </button>
-       </div>
-      </form>
-     </div>
-    </div>
    </div>
-   <section aria-label="Cotton product collection" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-20">
-    <article class="relative group">
+   <section aria-label="Cotton product collection" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mb-20" id="productGrid">
+    <!-- Existing 8 products -->
+    <article class="relative group" data-id="1" data-liked="false">
      <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
       New
      </span>
@@ -213,8 +101,12 @@
      <p class="mt-2 text-center font-serif font-semibold text-lg">
       ₹3,200
      </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
     </article>
-    <article class="relative group">
+    <article class="relative group" data-id="2" data-liked="false">
      <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
       New
      </span>
@@ -222,8 +114,12 @@
      <p class="mt-2 text-center font-serif font-semibold text-lg">
       ₹4,500
      </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
     </article>
-    <article class="relative group">
+    <article class="relative group" data-id="3" data-liked="false">
      <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
       New
      </span>
@@ -231,8 +127,12 @@
      <p class="mt-2 text-center font-serif font-semibold text-lg">
       ₹2,900
      </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
     </article>
-    <article class="relative group">
+    <article class="relative group" data-id="4" data-liked="false">
      <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
       New
      </span>
@@ -240,8 +140,12 @@
      <p class="mt-2 text-center font-serif font-semibold text-lg">
       ₹3,700
      </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
     </article>
-    <article class="relative group">
+    <article class="relative group" data-id="5" data-liked="false">
      <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
       New
      </span>
@@ -249,8 +153,12 @@
      <p class="mt-2 text-center font-serif font-semibold text-lg">
       ₹4,200
      </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
     </article>
-    <article class="relative group">
+    <article class="relative group" data-id="6" data-liked="false">
      <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
       New
      </span>
@@ -258,8 +166,12 @@
      <p class="mt-2 text-center font-serif font-semibold text-lg">
       ₹2,600
      </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
     </article>
-    <article class="relative group">
+    <article class="relative group" data-id="7" data-liked="false">
      <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
       New
      </span>
@@ -267,8 +179,12 @@
      <p class="mt-2 text-center font-serif font-semibold text-lg">
       ₹3,900
      </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
     </article>
-    <article class="relative group">
+    <article class="relative group" data-id="8" data-liked="false">
      <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
       New
      </span>
@@ -276,14 +192,547 @@
      <p class="mt-2 text-center font-serif font-semibold text-lg">
       ₹4,800
      </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <!-- 30 new ladies cotton garments -->
+    <article class="relative group" data-id="9" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Pink ladies cotton kurta with floral embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/dc5094de-4782-4d23-04d0-a339e7c0b9ac.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,100
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="10" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Yellow ladies cotton kurta with block print hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/27206cd9-d232-4a37-0bbb-1f0889cf9e13.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,800
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="11" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Green ladies cotton kurta with floral print hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/063b9b01-328f-46a2-fda5-c21d172cf996.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹4,100
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="12" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Blue ladies cotton kurta with white embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/4132f2f0-cd67-4613-917c-cc810e9059f8.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,600
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="13" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Orange ladies cotton kurta with floral print hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/9f0c4530-2919-4060-f6f8-f65d822c47de.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹4,000
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="14" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Purple ladies cotton kurta with embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/7e4a86c8-90c8-4389-be1a-3ca7450eebb7.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,900
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="15" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light pink ladies cotton kurta with floral embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/e2dba551-830c-43eb-2be3-81f32bb05913.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,300
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="16" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="White ladies cotton kurta with pink floral print hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/1e75051a-3968-4232-7ed4-4fec55faf8bd.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,700
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="17" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light blue ladies cotton kurta with embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/712f58cf-d773-4d0b-5a08-05b90ff911b7.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,800
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="18" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Beige ladies cotton kurta with floral embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/5b7efff7-6f33-4a20-6400-1a48390ac8b8.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,400
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="19" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Maroon ladies cotton kurta with embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/0b872449-a074-43ca-a2af-dc5bd92d0ec4.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹4,100
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="20" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light green ladies cotton kurta with floral print hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/a4c6bd74-bd8f-42b0-7341-aaf0ac9cc85b.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,500
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="21" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Cream ladies cotton kurta with embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/54dcd3aa-ca53-4ba9-127e-fe0abbaa6e1d.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,900
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="22" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light yellow ladies cotton kurta with floral embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/30c6507e-e265-430f-2d83-30a8aad07c87.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,200
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="23" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light orange ladies cotton kurta with embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/e44d2e61-6c2a-4330-f118-ebd3c2f35a79.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,700
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="24" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light purple ladies cotton kurta with floral embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/38218e8a-9da7-42f3-73d1-99d0ea71047c.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,600
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="25" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light brown ladies cotton kurta with embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/b38b9bf3-fe40-4d74-2779-2fe1a6754c71.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,900
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="26" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light grey ladies cotton kurta with floral embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/5fdc6f68-3ad3-490e-aa17-06f2fffedc4b.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,500
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="27" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light teal ladies cotton kurta with embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/97436657-3451-4ccb-bca4-9e29ea4f6521.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,800
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="28" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light coral ladies cotton kurta with floral embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/7e21731b-d6f5-494e-f126-cbbf62c88e26.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,700
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="29" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light lavender ladies cotton kurta with embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/950e78e6-e1bb-42ca-6c14-d627990d8681.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,900
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
+    </article>
+    <article class="relative group" data-id="30" data-liked="false">
+     <span class="absolute top-2 left-2 bg-[#1a3a1a] text-white text-xs font-serif uppercase px-2 py-0.5 z-10">
+      New
+     </span>
+     <img alt="Light mint ladies cotton kurta with floral embroidery hanging on wooden hanger" class="w-full object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/51cccb2a-b2ad-43e6-1c92-205780995aa7.jpg" width="300"/>
+     <p class="mt-2 text-center font-serif font-semibold text-lg">
+      ₹3,600
+     </p>
+     <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <i class="far fa-heart like-icon">
+      </i>
+     </button>
     </article>
    </section>
   </main>
+  <!-- Filter Modal -->
+  <div aria-labelledby="filterTitle" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-30 hidden" id="filterModal" role="dialog">
+   <div class="bg-white rounded-md max-w-md w-full p-6 relative">
+    <h2 class="text-xl font-serif font-semibold mb-4" id="filterTitle">
+     Filter Products
+    </h2>
+    <button aria-label="Close filter modal" class="absolute top-3 right-3 text-gray-600 hover:text-black" id="closeFilterBtn" type="button">
+     <i class="fas fa-times text-lg">
+     </i>
+    </button>
+    <form class="space-y-6">
+     <fieldset>
+      <legend class="font-serif font-semibold mb-2">
+       Size
+      </legend>
+      <div class="flex flex-wrap gap-3">
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="size" type="checkbox" value="S"/>
+        <span class="font-serif text-sm">
+         S
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="size" type="checkbox" value="M"/>
+        <span class="font-serif text-sm">
+         M
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="size" type="checkbox" value="L"/>
+        <span class="font-serif text-sm">
+         L
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="size" type="checkbox" value="XL"/>
+        <span class="font-serif text-sm">
+         XL
+        </span>
+       </label>
+      </div>
+     </fieldset>
+     <fieldset>
+      <legend class="font-serif font-semibold mb-2">
+       Color
+      </legend>
+      <div class="flex flex-wrap gap-3">
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="color" type="checkbox" value="Black"/>
+        <span class="font-serif text-sm">
+         Black
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="color" type="checkbox" value="White"/>
+        <span class="font-serif text-sm">
+         White
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="color" type="checkbox" value="Red"/>
+        <span class="font-serif text-sm">
+         Red
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="color" type="checkbox" value="Blue"/>
+        <span class="font-serif text-sm">
+         Blue
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="color" type="checkbox" value="Green"/>
+        <span class="font-serif text-sm">
+         Green
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="color" type="checkbox" value="Yellow"/>
+        <span class="font-serif text-sm">
+         Yellow
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="color" type="checkbox" value="Orange"/>
+        <span class="font-serif text-sm">
+         Orange
+        </span>
+       </label>
+      </div>
+     </fieldset>
+     <fieldset>
+      <legend class="font-serif font-semibold mb-2">
+       Price (₹)
+      </legend>
+      <div class="flex flex-col gap-2">
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="price" type="radio" value="2000-3000"/>
+        <span class="font-serif text-sm">
+         ₹2,000 - ₹3,000
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="price" type="radio" value="3001-4000"/>
+        <span class="font-serif text-sm">
+         ₹3,001 - ₹4,000
+        </span>
+       </label>
+       <label class="flex items-center gap-2 cursor-pointer">
+        <input name="price" type="radio" value="4001-5000"/>
+        <span class="font-serif text-sm">
+         ₹4,001 - ₹5,000
+        </span>
+       </label>
+      </div>
+     </fieldset>
+     <div class="flex justify-end gap-4 mt-6">
+      <button class="px-4 py-2 border border-black font-serif text-sm hover:bg-gray-100" id="clearFilters" type="button">
+       Clear
+      </button>
+      <button class="px-4 py-2 bg-black text-white font-serif text-sm hover:bg-gray-800" type="submit">
+       Apply
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <!-- Search Modal -->
+  <div aria-labelledby="searchTitle" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-40 hidden" id="searchModal" role="dialog">
+   <div class="bg-white rounded-md max-w-md w-full p-6 relative">
+    <h2 class="text-xl font-serif font-semibold mb-4" id="searchTitle">
+     Search Products
+    </h2>
+    <button aria-label="Close search modal" class="absolute top-3 right-3 text-gray-600 hover:text-black" id="closeSearchBtn" type="button">
+     <i class="fas fa-times text-lg">
+     </i>
+    </button>
+    <form>
+     <input aria-label="Search input" autofocus="" class="w-full border border-gray-300 rounded-md px-4 py-2 font-serif text-base focus:outline-none focus:ring-2 focus:ring-black" placeholder="Search for products..." type="search"/>
+    </form>
+   </div>
+  </div>
+  <!-- Login Modal -->
+  <div aria-labelledby="loginTitle" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden" id="loginModal" role="dialog">
+   <div class="bg-white rounded-md max-w-md w-full p-6 relative">
+    <h2 class="text-xl font-serif font-semibold mb-6 text-center" id="loginTitle">
+     Login or Create Account
+    </h2>
+    <button aria-label="Close login modal" class="absolute top-3 right-3 text-gray-600 hover:text-black" id="closeLoginBtn" type="button">
+     <i class="fas fa-times text-lg">
+     </i>
+    </button>
+    <form class="space-y-4">
+     <input aria-label="Email" class="w-full border border-gray-300 rounded-md px-4 py-2 font-serif text-base focus:outline-none focus:ring-2 focus:ring-black" placeholder="Email" required="" type="email"/>
+     <input aria-label="Password" class="w-full border border-gray-300 rounded-md px-4 py-2 font-serif text-base focus:outline-none focus:ring-2 focus:ring-black" placeholder="Password" required="" type="password"/>
+     <button class="w-full bg-black text-white py-2 rounded-md font-serif text-base hover:bg-gray-800" type="submit">
+      Login
+     </button>
+    </form>
+    <div class="mt-6 text-center font-serif text-sm text-gray-600">
+     OR
+    </div>
+    <button class="mt-4 w-full border border-gray-300 rounded-md py-2 flex items-center justify-center gap-3 font-serif text-base hover:bg-gray-100" type="button">
+     <img alt="Google logo" class="h-5 w-5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+     Login with Google
+    </button>
+    <p class="mt-6 text-center text-sm font-serif text-gray-700">
+     Don't have an account?
+     <button class="text-black underline font-semibold" id="createAccountBtn" type="button">
+      Create one
+     </button>
+    </p>
+   </div>
+  </div>
+  <!-- Create Account Modal -->
+  <div aria-labelledby="createAccountTitle" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden" id="createAccountModal" role="dialog">
+   <div class="bg-white rounded-md max-w-md w-full p-6 relative">
+    <h2 class="text-xl font-serif font-semibold mb-6 text-center" id="createAccountTitle">
+     Create Account
+    </h2>
+    <button aria-label="Close create account modal" class="absolute top-3 right-3 text-gray-600 hover:text-black" id="closeCreateAccountBtn" type="button">
+     <i class="fas fa-times text-lg">
+     </i>
+    </button>
+    <form class="space-y-4">
+     <input aria-label="Name" class="w-full border border-gray-300 rounded-md px-4 py-2 font-serif text-base focus:outline-none focus:ring-2 focus:ring-black" placeholder="Full Name" required="" type="text"/>
+     <input aria-label="Email" class="w-full border border-gray-300 rounded-md px-4 py-2 font-serif text-base focus:outline-none focus:ring-2 focus:ring-black" placeholder="Email" required="" type="email"/>
+     <input aria-label="Password" class="w-full border border-gray-300 rounded-md px-4 py-2 font-serif text-base focus:outline-none focus:ring-2 focus:ring-black" placeholder="Password" required="" type="password"/>
+     <button class="w-full bg-black text-white py-2 rounded-md font-serif text-base hover:bg-gray-800" type="submit">
+      Create Account
+     </button>
+    </form>
+    <p class="mt-6 text-center text-sm font-serif text-gray-700">
+     Already have an account?
+     <button class="text-black underline font-semibold" id="backToLoginBtn" type="button">
+      Login
+     </button>
+    </p>
+   </div>
+  </div>
+  <!-- Wishlist Modal -->
+  <div aria-labelledby="wishlistTitle" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden" id="wishlistModal" role="dialog">
+   <div class="bg-white rounded-md max-w-4xl w-full p-6 relative max-h-[80vh] overflow-y-auto">
+    <h2 class="text-xl font-serif font-semibold mb-6 text-center" id="wishlistTitle">
+     Liked Items
+    </h2>
+    <button aria-label="Close wishlist modal" class="absolute top-3 right-3 text-gray-600 hover:text-black" id="closeWishlistBtn" type="button">
+     <i class="fas fa-times text-lg">
+     </i>
+    </button>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6" id="wishlistContent">
+     <!-- Liked items will be appended here -->
+    </div>
+    <p class="mt-6 text-center font-serif text-gray-600" id="emptyWishlistMsg">
+     You have no liked items.
+    </p>
+   </div>
+  </div>
   <script>
    const filterBtn = document.getElementById('filterBtn');
     const filterModal = document.getElementById('filterModal');
     const closeFilterBtn = document.getElementById('closeFilterBtn');
     const clearFiltersBtn = document.getElementById('clearFilters');
+
+    const searchBtn = document.getElementById('searchBtn');
+    const searchModal = document.getElementById('searchModal');
+    const closeSearchBtn = document.getElementById('closeSearchBtn');
+
+    const userBtn = document.getElementById('userBtn');
+    const loginModal = document.getElementById('loginModal');
+    const closeLoginBtn = document.getElementById('closeLoginBtn');
+
+    const createAccountModal = document.getElementById('createAccountModal');
+    const createAccountBtn = document.getElementById('createAccountBtn');
+    const closeCreateAccountBtn = document.getElementById('closeCreateAccountBtn');
+    const backToLoginBtn = document.getElementById('backToLoginBtn');
+
+    const wishlistBtn = document.getElementById('wishlistBtn');
+    const wishlistModal = document.getElementById('wishlistModal');
+    const closeWishlistBtn = document.getElementById('closeWishlistBtn');
+    const wishlistContent = document.getElementById('wishlistContent');
+    const emptyWishlistMsg = document.getElementById('emptyWishlistMsg');
+
+    const productGrid = document.getElementById('productGrid');
+
+    const gridViewBtn = document.getElementById('gridViewBtn');
+    const gridOptions = document.getElementById('gridOptions');
 
     filterBtn.addEventListener('click', () => {
       filterModal.classList.remove('hidden');
@@ -302,6 +751,134 @@
     clearFiltersBtn.addEventListener('click', () => {
       const form = clearFiltersBtn.closest('form');
       form.reset();
+    });
+
+    searchBtn.addEventListener('click', () => {
+      searchModal.classList.remove('hidden');
+    });
+
+    closeSearchBtn.addEventListener('click', () => {
+      searchModal.classList.add('hidden');
+    });
+
+    searchModal.addEventListener('click', (e) => {
+      if (e.target === searchModal) {
+        searchModal.classList.add('hidden');
+      }
+    });
+
+    userBtn.addEventListener('click', () => {
+      loginModal.classList.remove('hidden');
+    });
+
+    closeLoginBtn.addEventListener('click', () => {
+      loginModal.classList.add('hidden');
+    });
+
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        loginModal.classList.add('hidden');
+      }
+    });
+
+    createAccountBtn.addEventListener('click', () => {
+      loginModal.classList.add('hidden');
+      createAccountModal.classList.remove('hidden');
+    });
+
+    closeCreateAccountBtn.addEventListener('click', () => {
+      createAccountModal.classList.add('hidden');
+    });
+
+    backToLoginBtn.addEventListener('click', () => {
+      createAccountModal.classList.add('hidden');
+      loginModal.classList.remove('hidden');
+    });
+
+    createAccountModal.addEventListener('click', (e) => {
+      if (e.target === createAccountModal) {
+        createAccountModal.classList.add('hidden');
+      }
+    });
+
+    // Like button toggle and wishlist management
+    productGrid.addEventListener('click', (e) => {
+      if (e.target.classList.contains('like-icon')) {
+        const btn = e.target.closest('button');
+        const article = e.target.closest('article');
+        const liked = article.getAttribute('data-liked') === 'true';
+        if (liked) {
+          article.setAttribute('data-liked', 'false');
+          e.target.classList.remove('fas');
+          e.target.classList.add('far');
+        } else {
+          article.setAttribute('data-liked', 'true');
+          e.target.classList.remove('far');
+          e.target.classList.add('fas');
+        }
+      }
+    });
+
+    // Show wishlist modal with liked items
+    wishlistBtn.addEventListener('click', () => {
+      wishlistContent.innerHTML = '';
+      const likedItems = Array.from(productGrid.querySelectorAll('article[data-liked="true"]'));
+      if (likedItems.length === 0) {
+        emptyWishlistMsg.style.display = 'block';
+      } else {
+        emptyWishlistMsg.style.display = 'none';
+        likedItems.forEach((item) => {
+          const clone = item.cloneNode(true);
+          // Remove like button from clone to avoid confusion
+          const likeBtn = clone.querySelector('button[aria-label="Like product"]');
+          if (likeBtn) likeBtn.remove();
+          wishlistContent.appendChild(clone);
+        });
+      }
+      wishlistModal.classList.remove('hidden');
+    });
+
+    closeWishlistBtn.addEventListener('click', () => {
+      wishlistModal.classList.add('hidden');
+    });
+
+    wishlistModal.addEventListener('click', (e) => {
+      if (e.target === wishlistModal) {
+        wishlistModal.classList.add('hidden');
+      }
+    });
+
+    // Grid view button toggle options
+    gridViewBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      gridOptions.classList.toggle('hidden');
+    });
+
+    // Close grid options if clicked outside
+    document.addEventListener('click', () => {
+      gridOptions.classList.add('hidden');
+    });
+
+    // Handle grid options click
+    gridOptions.querySelectorAll('button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cols = btn.getAttribute('data-cols');
+        // Remove all grid-cols-* classes from productGrid
+        productGrid.classList.remove('grid-cols-2', 'grid-cols-3', 'grid-cols-4', 'grid-cols-5', 'sm:grid-cols-3', 'md:grid-cols-4');
+        // Add new grid-cols based on selection
+        productGrid.classList.add(`grid-cols-${cols}`);
+        // For responsiveness, adjust sm and md accordingly
+        if (cols == '2') {
+          productGrid.classList.add('sm:grid-cols-2', 'md:grid-cols-2');
+        } else if (cols == '3') {
+          productGrid.classList.add('sm:grid-cols-3', 'md:grid-cols-3');
+        } else if (cols == '4') {
+          productGrid.classList.add('sm:grid-cols-4', 'md:grid-cols-4');
+        } else if (cols == '5') {
+          productGrid.classList.add('sm:grid-cols-5', 'md:grid-cols-5');
+        }
+        gridOptions.classList.add('hidden');
+      });
     });
   </script>
  </body>
