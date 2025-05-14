@@ -220,6 +220,16 @@
       ₹3,800
      </p>
      <button aria-label="Like product" class="absolute top-2 right-2 text-white bg-black bg-opacity-60 rounded-full p-1 hover:bg-opacity-90 transition" type="button">
+      <script>
+ document.querySelectorAll('.like-icon').forEach(btn => {
+   btn.addEventListener('click', function() {
+     const icon = this;
+     icon.classList.toggle('far');
+     icon.classList.toggle('fas');
+     icon.classList.toggle('text-red-500');
+   });
+ })
+      </script>
       <i class="far fa-heart like-icon">
       </i>
      </button>
